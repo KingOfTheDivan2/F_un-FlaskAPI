@@ -13,7 +13,7 @@ db = SQLAlchemy()
 migrate = Migrate()
 
 # fontion de création de l'application
-def create_app():
+def create_app(config_class=None):
     
     # chargement des variables d'environnement
     load_dotenv()
@@ -22,12 +22,15 @@ def create_app():
     app = Flask(__name__)
     
     # Configuration de l'application avec les variables d'environnement
-    # Clé secret pour le token
-    app.config['SECRET_KEY'] = os.getenv('SECRET_KEY','dev_secret')
-    # Configuration de la connection à la base de données
-    app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'sqlite:///app.db')
-    # Désactivation du suivi des modifications de SQLAlchemy ( reduit la consommation de mémoire)
-    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    if config_class:
+        app.config.from_object(config_class)
+    else:
+        # Clé secret pour le token
+        app.config['SECRET_KEY'] = os.getenv('SECRET_KEY','dev_secret')
+        # Configuration de la connection à la base de données
+        app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'sqlite:///app.db')
+        # Désactivation du suivi des modifications de SQLAlchemy ( reduit la consommation de mémoire)
+        app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     
     # Initalisation des extensions avec l'application
     db.init_app(app)
@@ -36,12 +39,15 @@ def create_app():
     
     # Import des models
     from app.models import User
+    from app.models import Circuit
     
     # Import & Enregistrement des blueprints
     
     from app.routes.user_routes import user_bp
-    
+    from app.routes.circuit_routes import circuit_bp
+
     app.register_blueprint(user_bp)
+    app.register_blueprint(circuit_bp)
     
     
     return app

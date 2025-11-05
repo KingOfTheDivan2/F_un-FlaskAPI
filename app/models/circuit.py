@@ -6,7 +6,7 @@ class Circuit(db.Model):
     
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), unique=True, nullable=False)
-    city = db.Column(db.String(200), nullable=False)
+    city = db.Column(db.String(100), nullable=False)
     country = db.Column(db.String(100), nullable=False)
     first_grand_prix_year = db.Column(db.Integer, nullable=False)
     length_km = db.Column(db.Float, nullable=False)
