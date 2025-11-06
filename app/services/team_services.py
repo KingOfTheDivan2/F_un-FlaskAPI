@@ -3,8 +3,8 @@ from app.models import db, Team
 # region GET
 
 def get_team_by_id(id: int) -> Team | None:
-
-    team : Team = Team.query.filter_by(id-id).first()
+    """Retrieve a Team by its ID."""
+    team: Team = Team.query.filter_by(id=id).first()
     if not team:
         return None
     return team
@@ -22,7 +22,7 @@ def create_team(
         address: str,
         team_principal: str,
         founded_year: int,
-        total_points: int = 0,
+        total_points: float = 0,
         total_wins: int = 0,
         championships_won: int = 0,
         is_actual_champion: bool = False,
@@ -88,7 +88,7 @@ def put_team(
     address: str,
     team_principal: str,
     founded_year: int,
-    total_points: int = 0,
+    total_points: float = 0,
     total_wins: int = 0,
     championships_won: int = 0,
     is_actual_champion: bool = False,
@@ -116,5 +116,18 @@ def put_team(
         setattr(team_update, field, value)
     db.session.commit()
     return team_update
+
+# endregion
+
+# region DELETE
+
+def delete_team(id: int) -> bool:
+
+    team = get_team_by_id(id)
+    if not team:
+        return False
+    db.session.delete(team)
+    db.session.commit()
+    return True
 
 # endregion

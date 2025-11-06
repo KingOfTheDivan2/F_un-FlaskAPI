@@ -9,7 +9,7 @@ class Team(db.Model):
     address = db.Column(db.String(100), nullable=False)
     team_principal = db.Column(db.String(100), nullable=False)
     founded_year = db.Column(db.Integer, nullable=False)
-    total_points = db.Column(db.Integer, default=0)
+    total_points = db.Column(db.Float, default=0)
     total_wins = db.Column(db.Integer, default=0)
     championships_won = db.Column(db.Integer, default=0)
     is_actual_champion = db.Column(db.Boolean, default=False)
@@ -23,7 +23,8 @@ class Team(db.Model):
         return {
             "id": self.id,
             "name": self.name,
-            "base": self.base,
+            "country": self.country,
+            "address": self.address,
             "team_principal": self.team_principal,
             "founded_year": self.founded_year,
             "total_points": self.total_points,

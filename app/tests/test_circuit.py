@@ -30,7 +30,7 @@ def test_get_all_circuits(client):
     assert response.status_code == 200
     data = response.get_json()
     assert isinstance(data, list)
-    assert len(data) >= 1  # At least one circuit should be present
+    assert len(data) == 1  
 
 def test_get_circuit_by_id(client):
     # First, create a circuit to retrieve

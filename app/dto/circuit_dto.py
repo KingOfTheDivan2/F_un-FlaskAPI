@@ -25,7 +25,7 @@ class CircuitCreateDTO:
         if not data:
             return None, {"error": "No data provided"}
         
-        # === Extracting Data | Normalization removing spaces
+        # === Extracting Data | Normalization removing spaces ===
 
         name = (data.get('name') or "").strip()
         city = (data.get('city') or "").strip()
