@@ -15,8 +15,11 @@ class Team(db.Model):
     is_actual_champion = db.Column(db.Boolean, default=False)
     logo_url = db.Column(db.String(255), nullable=True)
 
+    # relationships
+    drivers = db.relationship('Driver', backref='team', lazy=True)
+
     def __repr__(self):
-        return f'<Team {self.name} based in {self.base}>'
+        return f'<Team {self.name} based in {self.country}>'
     
     def to_dict(self):
         """Return a JSON-serializable representation of the Team."""

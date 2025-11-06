@@ -17,16 +17,16 @@ def get_all_teams() -> list[Team]:
 # region POST
 
 def create_team(
-        name: str,
-        country: str,
-        address: str,
-        team_principal: str,
-        founded_year: int,
-        total_points: float = 0,
-        total_wins: int = 0,
-        championships_won: int = 0,
-        is_actual_champion: bool = False,
-        logo_url: str | None = None
+    name: str,
+    country: str,
+    address: str,
+    team_principal: str,
+    founded_year: int,
+    total_points: float = 0,
+    total_wins: int = 0,
+    championships_won: int = 0,
+    is_actual_champion: bool = False,
+    logo_url: str | None = None
 ) -> Team:
     new_team = Team(
         name=name,
