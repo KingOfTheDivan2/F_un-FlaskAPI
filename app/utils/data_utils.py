@@ -1,3 +1,6 @@
+
+# region Circuit
+
 PAYLOAD_CIRCUIT = {
     "name" : "Testname",
     "city" : "Testcity",
@@ -17,7 +20,9 @@ PAYLOAD_CIRCUIT_UPDATE = {
     "number_of_laps" : 55,
     "fastest_lap_time" : 88.3
 }
+# endregion
 
+# region Team
 PAYLOAD_TEAM = {
     "name" : "Testname",
     "country" : "Testcountry",
@@ -28,7 +33,7 @@ PAYLOAD_TEAM = {
     "total_wins": 7,
     "championships_won": 1,
     "is_actual_champion": False,
-    "logo_url": "Testurl"
+    "logo_url": "logo.png"
 }
 
 PAYLOAD_TEAM_UPDATE = {
@@ -41,5 +46,41 @@ PAYLOAD_TEAM_UPDATE = {
     "total_wins": 34,
     "championships_won": 4,
     "is_actual_champion": True,
-    "logo_url": "Updateurl"
+    "logo_url": "update.png"
+}
+# endregion
+
+# region Driver
+PAYLOAD_DRIVER = {
+    "driver_ref" : "TES",
+    "first_name" : "Testfirstname",
+    "last_name" : "Testlastname",
+    "nationality" : "Testnationality",
+    "birth_date" : "1980-05-23",
+    "is_actual_champion" : True,
+    "is_using_number_one" : True,
+    "car_number" : 3,
+    "team_id" : 1,
+    "total_points" : 234,
+    "total_wins" : 3,
+    "total_podiums" : 7,
+    "number_championship_won" : 1,
+    "image" : "image.png"
+}
+
+PAYLOAD_DRIVER_UPDATE = {
+    "driver_ref" : "UPD",
+    "first_name" : "Updatefirstname",
+    "last_name" : "Updatelastname",
+    "nationality" : "Updatenationality",
+    "birth_date" : "1997-12-05",
+    "is_actual_champion" : False,
+    "is_using_number_one" : False,
+    "car_number" : 45,
+    "team_id" : 3,
+    "total_points" : 87,
+    "total_wins" : 0,
+    "total_podiums" : 1,
+    "number_championship_won" : 0,
+    "image" : "update.png"
 }

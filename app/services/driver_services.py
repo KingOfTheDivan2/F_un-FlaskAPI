@@ -85,7 +85,7 @@ def patch_driver(id : int, data : dict) -> Driver | None:
     if 'total_podiums' in data:
         driver.total_podiums = data['total_podiums']
     if 'number_championship_won' in data:
-        driver.number_championship_won = data['number_champioship_won']
+        driver.number_championship_won = data['number_championship_won']
     if 'image' in data:
         driver.image = data['image']
     db.session.commit()
