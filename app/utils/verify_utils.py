@@ -158,3 +158,38 @@ class VerifyDriverUtils:
     def is_valid_team_id(team_id: int) -> bool:
         return isinstance(team_id, int) and team_id >= 0
 # endregion
+
+# region Season
+class VerifySeasonUtils:
+
+    @staticmethod
+    def is_valid_year(year: int) -> bool:
+        current_year = datetime.now().year
+        return isinstance(year, int) and 1900 <= year <= current_year
+    
+    @staticmethod
+    def is_valid_is_current(is_current: bool) -> bool:
+        return isinstance(is_current, bool)
+    
+    @staticmethod
+    def is_valid_start_date(start_date: Optional[str | date]) -> Optional[date]:
+        if isinstance(start_date, date):
+            return start_date
+        if isinstance(start_date, str):
+            try:
+                return datetime.strptime(start_date, "%Y-%m-%d").date()
+            except ValueError:
+                return None
+        return None
+    
+    @staticmethod
+    def is_valid_end_date(end_date: Optional[str | date]) -> Optional[date]:
+        if isinstance(end_date, date):
+            return end_date
+        if isinstance(end_date, str):
+            try:
+                return datetime.strptime(end_date, "%Y-%m-%d").date()
+            except ValueError:
+                return None
+        return None
+# endregion

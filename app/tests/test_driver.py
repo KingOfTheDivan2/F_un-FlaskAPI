@@ -25,7 +25,7 @@ def test_create_driver(client):
 def test_get_all_drivers(client):
     client.post('/drivers/', json=PAYLOAD_DRIVER)
 
-    response  = client.get('/drivers/')
+    response = client.get('/drivers/')
     assert response.status_code == 200
     data = response.get_json()
     assert isinstance(data, list)

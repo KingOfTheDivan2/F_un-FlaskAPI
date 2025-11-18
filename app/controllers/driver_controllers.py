@@ -104,7 +104,7 @@ def patch_driver_controller(id : int):
         return jsonify({"error": f"Driver with id {id} not found"}), 404
     
     return jsonify(updated.to_dict()), 200
-#endregion
+# endregion
 
 # region DELETE
 def delete_driver_controller(id : int):

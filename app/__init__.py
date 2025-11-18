@@ -42,6 +42,7 @@ def create_app(config_class=None):
     from app.models import Circuit
     from app.models import Team
     from app.models import Driver
+    from app.models import Season
     
     # Import & Enregistrement des blueprints
     
@@ -49,11 +50,12 @@ def create_app(config_class=None):
     from app.routes.circuit_routes import circuit_bp
     from app.routes.team_routes import team_bp
     from app.routes.driver_routes import driver_bp
+    from app.routes.season_routes import season_bp
 
     app.register_blueprint(user_bp)
     app.register_blueprint(circuit_bp)
     app.register_blueprint(team_bp)
     app.register_blueprint(driver_bp)
-    
+    app.register_blueprint(season_bp)
     
     return app

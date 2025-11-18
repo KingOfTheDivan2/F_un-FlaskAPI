@@ -84,3 +84,20 @@ PAYLOAD_DRIVER_UPDATE = {
     "number_championship_won" : 0,
     "image" : "update.png"
 }
+# endregion 
+
+# region Season
+PAYLOAD_SEASON = {
+    "year" : 2025,
+    "is_current" : True,
+    "start_date" : "2025-03-24",
+    "end_date" : "2025-12-17"
+}
+
+PAYLOAD_SEASON_UPDATE = {
+    "year" : 2000,
+    "is_current" : False,
+    "start_date" : "2000-03-21",
+    "end_date" : "2000-12-12"
+}
+# endregion
